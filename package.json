@@ -5,7 +5,8 @@
   "type": "module",
   "main": "./src/index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "new": "chmod +x ./scripts/new.sh && ./scripts/new.sh"
   },
   "keywords": [],
   "author": "",
