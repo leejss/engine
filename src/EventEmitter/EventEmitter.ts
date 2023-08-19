@@ -1,4 +1,4 @@
-type Handler = (...args: any) => void;
+type Handler = <T>(data: T) => void;
 
 export default class EventEmitter {
   private map: Map<string, Set<Handler>> = new Map();
@@ -11,9 +11,13 @@ export default class EventEmitter {
     }
   }
 
+  size = (name: string) => {
+    return this.map.get(name)?.size || 0;
+  };
+
   once(name: string, handler: Handler) {
-    const onceHandler = (...args: any) => {
-      handler(...args);
+    const onceHandler = <T>(data: T) => {
+      handler(data);
       this.off(name, onceHandler);
     };
 
@@ -35,7 +39,7 @@ export default class EventEmitter {
     this.map.clear();
   }
 
-  get size() {
+  get length() {
     return this.map.size;
   }
 }

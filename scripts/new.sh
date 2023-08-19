@@ -31,3 +31,8 @@ import { describe, beforeEach, test, expect, vi } from \"vitest\";" > ${name}.te
 
 # index.ts
 echo "export { default as ${name} } from \"./${name}\"" > index.ts
+
+
+# Upate ./src/index.ts
+cd .. 
+echo "export * from \"./${name}\";" >> index.ts
