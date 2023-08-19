@@ -1,4 +1,4 @@
-import { describe, it, expect, test, beforeEach } from "vitest";
+import { describe, expect, test, beforeEach } from "vitest";
 import Queue from "./Queue";
 
 describe("Queue<T>", () => {

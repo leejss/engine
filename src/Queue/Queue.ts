@@ -23,4 +23,8 @@ export default class Queue<T> {
   size = () => {
     return this.array.length;
   };
+
+  clear = () => {
+    this.array = [];
+  };
 }
