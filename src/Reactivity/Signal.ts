@@ -62,12 +62,3 @@ export function createEffect(fn: () => void): void {
 
   execute();
 }
-
-// Usage
-const [count, setCount] = createSignal<number>(1);
-
-createEffect(() => {
-  console.log(count());
-});
-
-setCount(2);
