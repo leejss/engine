@@ -1,4 +1,3 @@
-// GOAL: Make configurable and extendable client
 import ky, { KyInstance, Options } from "ky";
 
 type CustomKyConfig = {
