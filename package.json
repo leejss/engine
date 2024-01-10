@@ -3,19 +3,22 @@
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "./src/index.js",
   "scripts": {
-    "test": "vitest",
     "new": "chmod +x ./scripts/new.sh && ./scripts/new.sh"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "eventemitter3": "^5.0.1",
+    "fp-ts": "^2.16.1",
     "ky": "^1.1.3",
+    "readable-stream": "^4.5.2",
     "vitest": "^0.34.1"
   },
   "devDependencies": {
+    "@types/readable-stream": "^4.0.10",
+    "bun-types": "^1.0.14",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
   }

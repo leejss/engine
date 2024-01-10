@@ -2,7 +2,7 @@ import ky, { KyInstance, Options } from "ky";
 
 type CustomKyConfig = {
   baseURL: string;
-  defaultHeaders: HeadersInit;
+  defaultHeaders: Headers;
 };
 
 type ClientConfig = { name: string } & CustomKyConfig;

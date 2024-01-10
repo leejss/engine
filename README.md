@@ -6,3 +6,4 @@
 4. Stream
 5. Stack
 6. PromiseQueue
+7. createClient
