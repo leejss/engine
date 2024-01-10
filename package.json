@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "new": "chmod +x ./scripts/new.sh && ./scripts/new.sh"
+    "test": "vitest"
   },
   "keywords": [],
   "author": "",
