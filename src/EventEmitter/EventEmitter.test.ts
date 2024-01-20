@@ -1,6 +1,6 @@
 import EventEmitter from "./EventEmitter"; // Adjust the path accordingly
 import EventEmitter3 from "eventemitter3";
-import { describe, beforeEach, test, expect, vi } from "vitest";
+import { describe, beforeEach, test, expect, vi, it } from "vitest";
 
 describe("EventEmitter", () => {
   let emitter: EventEmitter;
@@ -89,5 +89,17 @@ describe("EventEmitter3", () => {
     emitter.on("testEvent", handler);
     emitter.emit("testEvent", { data: "test" });
     expect(handler).toHaveBeenCalledWith({ data: "test" });
+  });
+});
+
+describe("Promise based EventEmitter", () => {
+  it("should", async () => {
+    const emitter = new EventEmitter3();
+    const value = await new Promise((resolve) => {
+      emitter.on("data", resolve);
+    });
+
+    emitter.emit("data", "test");
+    expect(value).toBe("test");
   });
 });
