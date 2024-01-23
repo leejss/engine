@@ -9,3 +9,5 @@
 - createClient
 - Port
 - PortStream
+- Middleware
+- memoize
