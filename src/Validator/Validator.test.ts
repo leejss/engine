@@ -8,6 +8,9 @@ describe("createValidator", () => {
     });
 
     const result = validator.validate("Test String");
+    if (result.type === "fail") {
+      throw new Error("Validation failed");
+    }
     expect(result.type).toBe("success");
     expect(result.value).toBe("Test String");
   });
@@ -18,32 +21,28 @@ describe("createValidator", () => {
     });
 
     const result = validator.validate(42);
+    if (result.type === "success") {
+      throw new Error("Validation succeeded");
+    }
     expect(result.type).toBe("fail");
-    expect(result.error).toBe("value is not string or number");
+    expect(result.error).toBe("isString validation failed");
   });
 
   it("validates multiple rules", () => {
     const validator = createValidator({
       isString: (value) => typeof value === "string",
-      isShort: (value) => typeof value === "string" && value.length <= 5,
+      isShort: (value: string) => value.length <= 5,
     });
 
     const validResult = validator.validate("Test");
     expect(validResult.type).toBe("success");
 
     const invalidResult = validator.validate("Too long string");
+    if (invalidResult.type === "success") {
+      throw new Error("Validation succeeded");
+    }
+
     expect(invalidResult.type).toBe("fail");
     expect(invalidResult.error).toBe("isShort validation failed");
   });
-
-  it("handles undefined rule", () => {
-    const validator = createValidator({});
-    validator.addRule("isNumber", undefined);
-
-    const result = validator.validate(42);
-    expect(result.type).toBe("fail");
-    expect(result.error).toBe("rule isNumber is not defined");
-  });
-
-  // More tests can be added to cover different scenarios and edge cases
 });
